@@ -80,6 +80,52 @@
     .welcome{font-size:16px}
     .btn{font-size:16px}
   }
+
+  @media(max-width:620px){
+    .attach-grid{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:10px !important;
+    }
+    .attach-card{
+      min-height:150px;
+      padding:12px 10px !important;
+      display:flex !important;
+      flex-direction:column !important;
+      align-items:center !important;
+      justify-content:center !important;
+      text-align:center !important;
+      gap:7px !important;
+    }
+    .attach-card .ico{
+      font-size:26px !important;
+      margin:0 !important;
+    }
+    .attach-card strong{
+      display:block;
+      font-size:15px !important;
+      line-height:1.45 !important;
+    }
+    .attach-card .meta{
+      display:block;
+      font-size:11px !important;
+      line-height:1.4 !important;
+      margin-top:4px;
+    }
+    .attach-card .view-badge{
+      font-size:10px !important;
+      margin-top:7px !important;
+    }
+    .attach-card .open{
+      position:absolute;
+      left:9px;
+      bottom:9px;
+      font-size:18px !important;
+    }
+    .attach-card{
+      position:relative;
+    }
+  }
+
 </style>
 </head>
 <body>
