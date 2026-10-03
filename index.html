@@ -43,8 +43,9 @@
   .wa{background:#19b85a;color:#fff}
   .li{background:#0a66c2;color:#fff}
   .mail{background:#fff;color:#103a5f}
-  .call{background:#f3c76d;color:#0c2740}
+  .call{background:linear-gradient(135deg,#d92d2d,#a51212);color:#fff;border:1px solid rgba(255,255,255,.16)}
   .gh{background:#24292f;color:#fff}
+  .call:hover{background:linear-gradient(135deg,#ef3f3f,#b91d1d)}
   .cv{background:linear-gradient(135deg,#f3c76d,#d7a94d);color:#0c2740}
   .sub{display:block;font-weight:400;font-size:12px;opacity:.9;margin-top:4px}
   .footer{text-align:center;color:#9fb1c0;font-size:12px;margin-top:18px}
@@ -126,6 +127,26 @@
     }
   }
 
+
+  .career-cta{
+    display:block;
+    margin:16px 0 14px;
+    text-decoration:none;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 26px rgba(0,0,0,.22);
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .career-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 30px rgba(0,0,0,.28);
+  }
+  .career-cta img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
 </style>
 </head>
 <body>
@@ -139,7 +160,11 @@
         يسعدني التواصل معك عبر إحدى الوسائل التالية:
       </p>
 
-      <div class="links">
+      <a class="career-cta" href="#attachments" aria-label="يسرني أن تستكشف مسيرتي المهنية ومرفقاتها">
+  <img src="career-button.png" alt="يسرني أن تستكشف مسيرتي المهنية ومرفقاتها">
+</a>
+
+<div class="links">
 <a class="btn wa" href="https://wa.me/966503402339?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D8%A3%D8%AD%D9%85%D8%AF%D8%8C%20%D8%A7%D8%B7%D9%84%D8%B9%D8%AA%20%D8%B9%D9%84%D9%89%20%D8%B3%D9%8A%D8%B1%D8%AA%D9%83%20%D8%A7%D9%84%D8%B0%D8%A7%D8%AA%D9%8A%D8%A9%20%D9%88%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83." target="_blank" rel="noopener">
           <div>تواصل معي عبر WhatsApp<span class="sub">يسعدني استقبال رسالتك والتواصل معك مباشرة.</span></div><span>›</span>
         </a>
