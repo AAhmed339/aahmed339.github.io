@@ -1,0 +1,51 @@
+{
+  "new_files_to_upload": [
+    "index.html",
+    "AWS_AI_Learning_Path.webp",
+    "Bachelor_Degree_Public.jpg",
+    "Lecturer_Certificate_Public.webp",
+    "Saudi_Red_Crescent_First_Aid.webp",
+    "ahmed_portrait.webp",
+    "ai_site_background.webp",
+    "aj_logo.webp",
+    "hero_mosque.webp",
+    "project_employees.webp",
+    "project_handicrafts.webp",
+    "project_sales.webp"
+  ],
+  "existing_repo_files_to_keep": [
+    "Ahmed_Aljabri_CV_AR.pdf",
+    "Ahmed_Aljabri_CV_EN.pdf",
+    "ai_data.jpg",
+    "ccna.jpg",
+    "excel.jpg",
+    "master.jpg",
+    "pmp.jpg",
+    "powerbi.jpg",
+    "sce.jpg",
+    "sdaia.jpg",
+    "sql.jpg"
+  ],
+  "references_count": 22,
+  "locally_missing_new_files": [],
+  "first_aid": {
+    "filename": "Saudi_Red_Crescent_First_Aid.webp",
+    "included": true,
+    "in_repo_confirmed": false,
+    "repo_evidence": "Not listed in supplied screenshot; live repository could not be retrieved"
+  },
+  "asset_sha256": {
+    "index.html": "162cd6b191a73efd2a38ddc3a61d40247de26923d56962e4b5ed86d9876638aa",
+    "ai_site_background.webp": "51268270b38ccd10cb7330c8e10671b02969aa8db1c1e69ed4664e839cec88e8",
+    "aj_logo.webp": "a7693459ea08c1bae7479cae72af3afacec4cfac06d90f6882889b11673b94fb",
+    "project_sales.webp": "a95f8a0652a3ee1521a76624c406906026ba366a24215b38b3b9986757c9eb9f",
+    "ahmed_portrait.webp": "f7615935257f23e10690a059e3db593b97598d3a4113ceef242b6a314b16e776",
+    "project_employees.webp": "11cf386f64522638a37262ef310578cc5d9c324cf8771cecede5c693d7020766",
+    "Saudi_Red_Crescent_First_Aid.webp": "65902f0539b66c8bd0046e6d0961ba599c0dac2d3625f6d89776d5df94b7ecbb",
+    "project_handicrafts.webp": "eea3dce897ca6bb6bc47a6f912702a08192f48277c7c3e8f62f9f467d1a44723",
+    "Bachelor_Degree_Public.jpg": "8a53fe7ba9ab6ec3d8b5dda38b634cda8d7dfd0fbc0d915130ed01f3b664b8cb",
+    "hero_mosque.webp": "b39537997f5bf5c579b7b08a45383c2c89d3be71ed1205cccb9f6a01ba93c17f",
+    "Lecturer_Certificate_Public.webp": "21038491620bc210052019a487089daaac1234209619c23077a2141c1af1120e",
+    "AWS_AI_Learning_Path.webp": "ba563083488a6da429b1c905f0fad203a3b4b7eda6d1b58974ddfa47f58b9153"
+  }
+}
