@@ -141,4 +141,29 @@ document.addEventListener('keydown',e=>{if(!modal.classList.contains('show'))ret
 window.addEventListener('resize',()=>{if(modal.classList.contains('show')&&modalScale===1)fitModalImage()});
 
 })();
-</script></body></html>
+</script>
+<!-- ربط إشعار الزيارات: لا يغيّر أي عنصر في واجهة الموقع -->
+<script id="aj-telegram-visit-notifier">
+(function () {
+  'use strict';
+  // ضع رابط نشر تطبيق الويب المنتهي بـ /exec باستخدام أداة الإعداد المرفقة.
+  const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyYfve3V9kBVBmK1t2DjwSOll5lD8aRRqsJz7b8fdqHzp0Q89ZVdhUimW3-gsW8rT3gyA/exec';
+  if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(WEB_APP_URL)) return;
+  // منع إرسال إشعارات من النسخ المحلية أو من صفحات غير موقعك الرسمي.
+  if (window.location.hostname.toLowerCase() !== 'aahmed339.github.io') return;
+  // مرة واحدة تقريبًا لكل زيارة تبويب؛ التحديث المتكرر لن يرسل إشعارًا جديدًا.
+  try {
+    const key = 'ahmed_telegram_visit_sent_v1';
+    if (window.sessionStorage.getItem(key) === '1') return;
+    window.sessionStorage.setItem(key, '1');
+  } catch (_) {}
+  // لا نرسل أسماء الزوار أو بياناتهم، ولا نعرض أي نافذة للمستخدم.
+  try {
+    fetch(WEB_APP_URL + '?event=visit', {
+      method: 'GET', mode: 'no-cors', credentials: 'omit',
+      cache: 'no-store', keepalive: true
+    }).catch(function () {});
+  } catch (_) {}
+})();
+</script>
+</body></html>
