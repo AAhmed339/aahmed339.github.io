@@ -30,6 +30,8 @@ header{height:62px;position:sticky;z-index:40;top:0;background:#04182cf5;border-
 .modal-zoom-level{color:#9edcf8;font:700 12px Arial,sans-serif;min-width:42px;text-align:center}
 .modal-canvas{flex:1;min-height:0;min-width:0;overflow:auto;padding:14px;display:flex;align-items:safe center;justify-content:safe center;background:radial-gradient(circle at 50% 40%,#153552 0%,#061527 70%);scrollbar-color:#3279a1 transparent}
 .modal-canvas img{display:block;flex-shrink:0;width:auto;height:auto;max-width:none;max-height:none;object-fit:contain;border-radius:5px;background:white;box-shadow:0 10px 32px #0008;user-select:none;-webkit-user-drag:none}
+/* Qiddiya preview: draw the already-loaded source at display resolution to avoid Chrome's corrupted downscale layer. */
+.modal-canvas #qiddiyaRaster{display:none;flex-shrink:0;max-width:none;max-height:none;border-radius:5px;background:#fff;box-shadow:0 10px 32px #0008}
 .modal-hint{text-align:center;color:#9bbbd2;font-size:11px;padding:7px 10px;background:#071c30;border-top:1px solid #1d4663}
 .modal-trigger{cursor:zoom-in}
 @media(max-width:680px){.modal{padding:4px}.modal-dialog{width:100%;height:98dvh;border-radius:10px}.modal-toolbar{padding:9px 8px;gap:6px}.modal-dialog h3{font-size:14px;flex-basis:100%;order:1;text-align:center}.modal-actions{width:100%;justify-content:center;order:2}.modal-control,.close-modal{min-width:35px;height:36px;font-size:16px}.modal-canvas{padding:7px}}
@@ -99,7 +101,7 @@ header{height:62px;position:sticky;z-index:40;top:0;background:#04182cf5;border-
 <section class="services-row" id="services"><div class="service-strip"><div class="service-card"><svg aria-hidden="true" class="ico"><use href="#i-file"></use></svg><div><strong><span data-ar="تنظيم وتنظيف البيانات" data-en="Data cleaning and preparation">تنظيم وتنظيف البيانات</span></strong><small><span data-ar="تحضير البيانات للتحليل" data-en="Prepare data for analysis">تحضير البيانات للتحليل</span></small></div></div><div class="service-card"><svg aria-hidden="true" class="ico"><use href="#i-chart"></use></svg><div><strong><span data-ar="التقارير ولوحات المؤشرات" data-en="Reports and dashboards">التقارير ولوحات المؤشرات</span></strong><small><span data-ar="عرض النتائج بصريًا" data-en="Present outcomes visually">عرض النتائج بصريًا</span></small></div></div><div class="service-card"><svg aria-hidden="true" class="ico"><use href="#i-target"></use></svg><div><strong><span data-ar="مؤشرات الأداء (KPIs)" data-en="Key performance indicators">مؤشرات الأداء (KPIs)</span></strong><small><span data-ar="تتبع الأداء" data-en="Track performance">تتبع الأداء</span></small></div></div><div class="service-card"><svg aria-hidden="true" class="ico"><use href="#i-brain"></use></svg><div><strong><span data-ar="الذكاء الاصطناعي" data-en="Artificial intelligence">الذكاء الاصطناعي</span></strong><small><span data-ar="فهم البيانات والنماذج" data-en="Explore models and data">فهم البيانات والنماذج</span></small></div></div><div class="service-card"><svg aria-hidden="true" class="ico"><use href="#i-briefcase"></use></svg><div><strong><span data-ar="فهم احتياجات العمل" data-en="Business needs">فهم احتياجات العمل</span></strong><small><span data-ar="حلول تقنية عملية" data-en="Practical technical solutions">حلول تقنية عملية</span></small></div></div></div></section>
 <footer class="footer" id="contact"><a href="tel:+966503402339"><svg aria-hidden="true" class="ico"><use href="#i-phone"></use></svg> +966 50 340 2339</a><a class="email" href="mailto:mrahmedd.339@gmail.com"><svg aria-hidden="true" class="ico"><use href="#i-mail"></use></svg> mrahmedd.339@gmail.com</a><a class="linkedin" href="https://www.linkedin.com/in/ahmed-aljabri-ai" rel="noopener" target="_blank">in LinkedIn</a><a class="github" href="https://github.com/AAhmed339" rel="noopener" target="_blank">GitHub</a><a class="whatsapp" href="https://wa.me/966503402339" rel="noopener" target="_blank">WhatsApp</a><a href="https://aahmed339.github.io" rel="noopener" target="_blank"><svg aria-hidden="true" class="ico"><use href="#i-globe"></use></svg> aahmed339.github.io</a></footer><p class="footline">© 2026 أحمد الجابري — جميع الحقوق محفوظة</p>
 </main></div>
-<div aria-hidden="true" aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog"><div class="modal-dialog"><div class="modal-toolbar"><h3 id="modalTitle"></h3><div class="modal-actions"><button aria-label="تصغير الصورة" class="modal-control" id="modalZoomOut" title="تصغير" type="button">−</button><span class="modal-zoom-level" id="modalZoomLevel">100%</span><button aria-label="تكبير الصورة" class="modal-control" id="modalZoomIn" title="تكبير" type="button">+</button><button class="modal-control modal-control-fit" id="modalFit" title="ملاءمة للشاشة" type="button">ملاءمة</button><button aria-label="إغلاق المرفق" class="close-modal" id="modalClose" type="button">×</button></div></div><div class="modal-canvas" id="modalCanvas"><img alt="" draggable="false" id="modalImg" src=""/></div><div class="modal-hint" id="modalHint">يمكن تكبير المرفق وتحريكه. وضوح التفاصيل يعتمد على دقة الصورة الأصلية.</div></div></div>
+<div aria-hidden="true" aria-labelledby="modalTitle" aria-modal="true" class="modal" id="modal" role="dialog"><div class="modal-dialog"><div class="modal-toolbar"><h3 id="modalTitle"></h3><div class="modal-actions"><button aria-label="تصغير الصورة" class="modal-control" id="modalZoomOut" title="تصغير" type="button">−</button><span class="modal-zoom-level" id="modalZoomLevel">100%</span><button aria-label="تكبير الصورة" class="modal-control" id="modalZoomIn" title="تكبير" type="button">+</button><button class="modal-control modal-control-fit" id="modalFit" title="ملاءمة للشاشة" type="button">ملاءمة</button><button aria-label="إغلاق المرفق" class="close-modal" id="modalClose" type="button">×</button></div></div><div class="modal-canvas" id="modalCanvas"><img alt="" draggable="false" id="modalImg" src=""/><canvas aria-label="معاينة مشروع القدية بجودة واضحة" id="qiddiyaRaster"></canvas></div><div class="modal-hint" id="modalHint">يمكن تكبير المرفق وتحريكه. وضوح التفاصيل يعتمد على دقة الصورة الأصلية.</div></div></div>
 <script>
 (()=>{'use strict';let lang='ar';const langBtn=document.getElementById('langBtn'),menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('topnav');const changeLang=()=>{lang=lang==='ar'?'en':'ar';document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';document.querySelectorAll('[data-ar]').forEach(el=>{el.textContent=el.getAttribute('data-'+lang)});langBtn.textContent=lang==='ar'?'🌐 English':'🌐 العربية';document.title=lang==='ar'?'أحمد الجابري | الموقع المهني':'Ahmed Aljabri | Professional Portfolio';renderSkillInfo();document.getElementById('modalFit').textContent=lang==='ar'?'ملاءمة':'Fit';document.getElementById('modalHint').textContent=lang==='ar'?'يمكن تكبير المرفق وتحريكه. يتم تحميل الصورة الأصلية من المستودع.':'Zoom and pan to inspect. The original is loaded from the repository.';const st=document.getElementById('skillsToggle'),expanded=skillPanel.classList.contains('show-all');st.textContent=(expanded?(lang==='ar'?'إخفاء المهارات الإضافية':'Show fewer skills'):(lang==='ar'?'عرض جميع المهارات':'Show all skills'))+(expanded?' ▴':' ▾')};langBtn.addEventListener('click',changeLang);
 menuBtn.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open))});document.querySelectorAll('.topnav a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');const id=a.getAttribute('href').slice(1);const fold=document.querySelector('#'+id+' > details');if(fold)fold.open=true}));
@@ -110,30 +112,76 @@ document.getElementById('skillsToggle').addEventListener('click',function(){cons
 const modal=document.getElementById('modal'),modalImg=document.getElementById('modalImg'),close=document.getElementById('modalClose'),modalCanvas=document.getElementById('modalCanvas');
 const zoomIn=document.getElementById('modalZoomIn'),zoomOut=document.getElementById('modalZoomOut'),zoomFit=document.getElementById('modalFit'),zoomLevel=document.getElementById('modalZoomLevel');
 let restoreFocus=null,modalScale=1,fitWidth=0;
+// The Qiddiya PNG loads correctly by itself, but Chromium can display a damaged
+// intermediate raster when the same large image is shrunk inside a modal.
+// Rasterize only that preview at its exact displayed size; leave all other documents unchanged.
+const qiddiyaRaster=document.getElementById('qiddiyaRaster');
+let isQiddiyaPreview=false;
+function drawQiddiyaPreview(cssWidth){
+  if(!isQiddiyaPreview||!modalImg.naturalWidth)return false;
+  try{
+    const nw=modalImg.naturalWidth,nh=modalImg.naturalHeight;
+    const cssHeight=Math.max(1,Math.round(cssWidth*nh/nw));
+    const dpr=Math.min(2,Math.max(1,window.devicePixelRatio||1));
+    const pixelRatio=Math.min(dpr,4096/cssWidth,4096/cssHeight);
+    const pixelWidth=Math.max(1,Math.round(cssWidth*pixelRatio));
+    const pixelHeight=Math.max(1,Math.round(cssHeight*pixelRatio));
+    const ctx=qiddiyaRaster.getContext('2d',{alpha:false});
+    if(!ctx)return false;
+    qiddiyaRaster.width=pixelWidth;
+    qiddiyaRaster.height=pixelHeight;
+    qiddiyaRaster.style.width=cssWidth+'px';
+    qiddiyaRaster.style.height=cssHeight+'px';
+    ctx.imageSmoothingEnabled=true;
+    ctx.imageSmoothingQuality='high';
+    ctx.fillStyle='#ffffff';
+    ctx.fillRect(0,0,pixelWidth,pixelHeight);
+    ctx.drawImage(modalImg,0,0,pixelWidth,pixelHeight);
+    qiddiyaRaster.style.display='block';
+    modalImg.style.display='none';
+    return true;
+  }catch(err){
+    // Safe fallback: show the normal image, and never break the other previews.
+    qiddiyaRaster.style.display='none';
+    modalImg.style.display='block';
+    return false;
+  }
+}
 function fitModalImage(){if(!modalImg.naturalWidth||!modal.classList.contains('show'))return;
   const w=Math.max(100,modalCanvas.clientWidth-28),h=Math.max(100,modalCanvas.clientHeight-28);
   fitWidth=Math.max(1,Math.floor(modalImg.naturalWidth*Math.min(w/modalImg.naturalWidth,h/modalImg.naturalHeight)));
   renderModalZoom();
 }
-function renderModalZoom(){if(!fitWidth)return;modalImg.style.width=Math.round(fitWidth*modalScale)+'px';modalImg.style.height='auto';
+function renderModalZoom(){
+  if(!fitWidth)return;
+  const cssWidth=Math.round(fitWidth*modalScale);
+  modalImg.style.width=cssWidth+'px';modalImg.style.height='auto';
+  if(isQiddiyaPreview)drawQiddiyaPreview(cssWidth);
   zoomLevel.textContent=Math.round(modalScale*100)+'%';zoomOut.disabled=modalScale<=1;zoomIn.disabled=modalScale>=4;
 }
 function setModalZoom(next){modalScale=Math.min(4,Math.max(1,next));renderModalZoom();}
-modalImg.addEventListener('load',()=>{modalScale=1;fitModalImage();modalCanvas.scrollTo({top:0,left:0,behavior:'instant'});});
+modalImg.addEventListener('load',()=>{
+  modalScale=1;fitModalImage();
+  modalCanvas.scrollTo({top:0,left:0,behavior:'instant'});
+  // Ensure the first frame is drawn after Chrome has finished decoding and painting.
+  if(isQiddiyaPreview)requestAnimationFrame(()=>{
+    if(modal.classList.contains('show')&&modalImg.naturalWidth)renderModalZoom();
+  });
+});
 modalImg.addEventListener('error',()=>{
  const hint=document.getElementById('modalHint');
  hint.textContent=lang==='ar'?'تعذر تحميل الملف من المستودع. تأكد من رفعه في المجلد الرئيسي وبالاسم الصحيح.':'Unable to load this repository file. Check the filename and upload location.';
  zoomOut.disabled=true;zoomIn.disabled=true;zoomFit.disabled=true;
 });
 document.querySelectorAll('.modal-trigger').forEach(button=>button.addEventListener('click',()=>{
-  restoreFocus=button;const src=button.dataset.img;if(!src)return;modalScale=1;fitWidth=0;
+  restoreFocus=button;const src=button.dataset.img;if(!src)return;modalScale=1;fitWidth=0;isQiddiyaPreview=(src==='Qiddiya.png');qiddiyaRaster.style.display='none';modalImg.style.display='block';
   document.getElementById('modalTitle').textContent=button.dataset.title||'';modalImg.alt=button.dataset.title||'وثيقة';
   modal.classList.add('show');modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
   document.getElementById('modalHint').textContent=lang==='ar'?'يمكن تكبير المرفق وتحريكه. يتم تحميل الصورة الأصلية من المستودع.':'Zoom and pan to inspect. The original is loaded from the repository.';
   zoomFit.disabled=false;zoomIn.disabled=false;zoomOut.disabled=true;modalImg.src=src;close.focus();
   if(modalImg.complete&&modalImg.naturalWidth)fitModalImage();
 }));
-function hideModal(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');modalImg.removeAttribute('src');modalImg.style.width='';document.body.style.overflow='';if(restoreFocus)restoreFocus.focus()}
+function hideModal(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true');modalImg.removeAttribute('src');modalImg.style.width='';modalImg.style.display='block';qiddiyaRaster.style.display='none';isQiddiyaPreview=false;document.body.style.overflow='';if(restoreFocus)restoreFocus.focus()}
 zoomIn.addEventListener('click',()=>setModalZoom(modalScale+.5));zoomOut.addEventListener('click',()=>setModalZoom(modalScale-.5));
 zoomFit.addEventListener('click',()=>{modalScale=1;fitModalImage();modalCanvas.scrollTo({top:0,left:0,behavior:'instant'});});
 close.addEventListener('click',hideModal);modal.addEventListener('click',e=>{if(e.target===modal)hideModal()});
